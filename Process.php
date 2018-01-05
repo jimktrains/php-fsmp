@@ -54,4 +54,21 @@ class Process
   {
     return $this->next($stateful);
   }
+
+  public function toDOT()
+  {
+    $dot = "digraph g {\n";
+    foreach ($this->transitions as $from => $allTransitions) {
+      foreach ($allTransitions as $to => $transitions) {
+        $index = 0;
+        foreach ($transitions as $transition) {
+          $index++;
+          $dot .= "$from -> $to [label=\"($index) {$transition['name']}\"];\n";
+        }
+      }
+    }
+    $dot .= "}";
+
+    return $dot;
+  }
 }

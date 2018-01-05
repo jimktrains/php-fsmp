@@ -100,7 +100,6 @@ $ComputeShipping->state('shipping_computed', function ($Order, $Accum) {
 });
 
 
-
 ///////////////////////
 // Examples
 //////////////////////
