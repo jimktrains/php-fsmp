@@ -85,6 +85,10 @@ $QualifedFreeShippingFilterReduce->add(null, 'addItem');
 $ComputeShipping = new Process();
 
 // First see if the order qualifies for free shipping.
+// name=free_shipping
+// begining state=initial
+// transition to=shipping_computed
+// only transition if `getCheck` === true for QualifedFreeShippingFilterReduce
 $ComputeShipping->transition('free_shipping', 'initial', 'shipping_computed', $QualifedFreeShippingFilterReduce);
 
 // If it doesn't, compute hte shipping price.
